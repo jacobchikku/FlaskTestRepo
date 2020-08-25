@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<style>
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.prdtForm input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.prdtForm button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.prdtForm button:hover {
+  background: #0b7dda;
+}
+
+form.prdtForm::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.searchResults {
+  position:absolute; 
+  top:100%; 
+  background-color: white; 
+  border: 1px solid black; 
+  z-index: 50;
+  display: none;
+}
+
+.block-level {
+    width: 820px;
+    height: 200px;
+    margin: 100px;
+    position: relative;
+    float: left;
+}
+
+</style>
+
+<body>
+
+<div>
+<h2 style=" font: 90px Tahoma, Helvetica, Arial, Sans-Serif;text-align: center; color: mediumblue ;text-shadow: 0px 2px 3px #555; ">
+    TicRec</h2>
+
+</div>
+
+<p></p>
+<form class="prdtForm" style="margin:auto;max-width:400px" role="form" action="{{ url_for('predict')}}"method="post">
+  <input type="text" name=" Issue Description" placeholder="Enter Details..." required="required">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+<!--
+<div class="block-level">
+  <a href="#">  
+  {{ prediction_text }}
+</a>
+</div>
+-->
+
+<p> &nbsp;</P>
+<p> &nbsp;</P>
+
+<style>
+
+table {  
+  color: #333;
+  font-family: Arial;
+  width: 800px; 
+  border-collapse: 
+  collapse; border-spacing: 0; 
+  margin-left:auto; 
+    margin-right:auto;
+}
+
+td, th {  
+  border: 1px solid transparent; /* No more visible border */
+  height: 30px; 
+  transition: all 0.3s;  /* Simple transition for hover effect */
+}
+
+th {  
+  background: #DFDFDF;  /* Darken header a bit */
+  font-weight: bold;
+}
+
+td {  
+  background: #FAFAFA;
+  text-align: center;
+}
+
+
+/* Cells in even rows (2,4,6...) are one color */        
+tr:nth-child(even) td { background: #F1F1F1; }   
+
+/* Cells in odd rows (1,3,5...) are another (excludes header cells)  */        
+tr:nth-child(odd) td { background: #FEFEFE; }  
+
+tr td:hover { background: rgb(102, 106, 129); color: rgb(18, 71, 131); }  
+/* Hover cell effect! */
+
+</style>
+<div id='dataDiv'>
+<table>  
+  <tr>  
+      <th>Recommendations</th>
+  </tr>  
+  <tr>  
+      <td><a href="#"> {{prediction_text}}</a> </td>
+    </tr>  
+  </table> 
+</div>
+
+</body>
+</html> 
